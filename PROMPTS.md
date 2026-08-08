@@ -47,3 +47,10 @@ This log documents the iterative "vibe-coding" process used with Antigravity/Cla
 
 **Prompt Used:**
 > "make sure the vercel cron endpoint is secure and requires a bearer token. also add a refresh button to the hud header that manually re-fetches the posts collection from firestore without needing a full page reload."
+
+
+## Phase 6: spiderman cursor and judge tagline
+**Context:** The UI felt too generic for the E.D.I.T.H. theme. Needed to lean into the spiderman vibes since the whole project is named after Tony Stark's glasses lol. Also judges need to instantly understand what the project does when they open the page.
+
+**Prompt Used:**
+> "i want you now to fix the UI more cool. add one or two lines mentioning the idea and concept of the project in the header for judges reference. also rework the cursor effect — make it a spider-web crosshair reticle instead of a generic dot. when you click it should shoot out web lines that burst outward and fade. the color theme should be spiderman red and blue matching the existing cyber-red and hud-cyan variables. also add a rotating spider shield icon next to the title. make it feel alive."
