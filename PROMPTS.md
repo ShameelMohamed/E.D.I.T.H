@@ -15,3 +15,10 @@ This log documents the iterative vibe-coding process used with Antigravity/Claud
 
 **Prompt Used:**
 > "ok read MASTER_INSTRUCTIONS.md and build the base project matching those specs. actually i decided to drop the Breeth API completely to simplify things. refactor lib/edithEngine.ts and the init route to remove all breeth sdk stuff. for the hackthon 'Memory' requirement just use Firebase Firestore. before sending a github PR to the LLM, check the 'posts' collection to see if that URL is already in the sources array. if it is, skip it so we dont get duplicate posts on the feed."
+
+
+## Phase 2: rate limit crashes and gemini migration
+**Context:** Testing the loop and immediately burned through rate limits because its calling the LLM for every single PR lol. Need to batch them and use gemini since it has a huge context window.
+
+**Prompt Used:**
+> "the current discovery loop is calling the LLM for every single PR individually and its exhausting api limits instantly. switch to google gemini flash and use a batch processing approach instead. refactor src/lib/edithEngine.ts to process all signals in a single api call. create a new func applyBatchEditorialFilter(signals) that sends the whole array to gemini in one prompt. make sure to force the output to be JSON with an accepted_posts array."
