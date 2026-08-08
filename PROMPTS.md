@@ -22,3 +22,10 @@ This log documents the iterative vibe-coding process used with Antigravity/Claud
 
 **Prompt Used:**
 > "the current discovery loop is calling the LLM for every single PR individually and its exhausting api limits instantly. switch to google gemini flash and use a batch processing approach instead. refactor src/lib/edithEngine.ts to process all signals in a single api call. create a new func applyBatchEditorialFilter(signals) that sends the whole array to gemini in one prompt. make sure to force the output to be JSON with an accepted_posts array."
+
+
+## Phase 3: token optimization
+**Context:** Gemini threw a 404 and also we are hitting token limits because diff payloads are massive. Upgrading model and truncating the strings.
+
+**Prompt Used:**
+> "api is throwing a 404 now. we need to upgrade to the active endpoint (gemini-3.6-flash). also prevent token limit exhaustion by truncating the massive diff payloads before we send the batch. update the fetch url to gemini-3.6-flash and before converting the signals array to a string, truncate the raw diff and body fields to a max of 2,000 characters."
