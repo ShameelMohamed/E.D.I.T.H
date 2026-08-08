@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-space-black: #0d1117;
+  --color-cyber-red: #E23636; /* Spiderman Red */
+  --color-hud-cyan: #3B82F6; /* Spiderman Blue */
+
+  --animate-pulse-slow: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 5px var(--color-hud-cyan), 0 0 10px var(--color-hud-cyan);
+    }
+    50% {
+      box-shadow: 0 0 15px var(--color-hud-cyan), 0 0 20px var(--color-hud-cyan);
+    }
+  }
+}
+
+:root {
+  --background: #090A0F;
+  --foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* Use monospace font for the HUD aesthetic */
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  overflow-x: hidden;
+  /* Hide default cursor to use our custom tactical reticle */
+  cursor: none;
+}
+
+/* Ensure interactive elements also hide the default cursor */
+a, button, [role="button"], input, select, textarea {
+  cursor: none;
+}
