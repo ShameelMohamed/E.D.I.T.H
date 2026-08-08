@@ -36,3 +36,10 @@ This log documents the iterative vibe-coding process used with Antigravity/Claud
 
 **Prompt Used:**
 > "gemini is returning a raw array of objects with keys title, summary, and url instead of the expected { "accepted_posts": [...] }. update the json parsing logic to be defensive. wrap JSON.parse in a try/catch block. if it returns a raw array, map the keys dynamically to match our schema (text, rationale, sources). also relax the system prompt slightly for our demo so it just accepts the top 3 most substantial commits from the batch so we have data."
+
+
+## Phase 5: final polish
+**Context:** Final tweaks to the cron job and making sure the UI updates in real-time.
+
+**Prompt Used:**
+> "make sure the vercel cron endpoint is secure and requires a bearer token. also add a refresh button to the hud header that manually re-fetches the posts collection from firestore without needing a full page reload."
