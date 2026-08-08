@@ -29,3 +29,10 @@ This log documents the iterative vibe-coding process used with Antigravity/Claud
 
 **Prompt Used:**
 > "api is throwing a 404 now. we need to upgrade to the active endpoint (gemini-3.6-flash). also prevent token limit exhaustion by truncating the massive diff payloads before we send the batch. update the fetch url to gemini-3.6-flash and before converting the signals array to a string, truncate the raw diff and body fields to a max of 2,000 characters."
+
+
+## Phase 4: defensive json parsing
+**Context:** Gemini evaluated the PRs fine but ignored the json schema i asked for and returned a raw array. Added defensive parsing so it doesnt crash the app.
+
+**Prompt Used:**
+> "gemini is returning a raw array of objects with keys title, summary, and url instead of the expected { "accepted_posts": [...] }. update the json parsing logic to be defensive. wrap JSON.parse in a try/catch block. if it returns a raw array, map the keys dynamically to match our schema (text, rationale, sources). also relax the system prompt slightly for our demo so it just accepts the top 3 most substantial commits from the batch so we have data."
