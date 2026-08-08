@@ -54,3 +54,10 @@ This log documents the iterative "vibe-coding" process used with Antigravity/Cla
 
 **Prompt Used:**
 > "i want you now to fix the UI more cool. add one or two lines mentioning the idea and concept of the project in the header for judges reference. also rework the cursor effect — make it a spider-web crosshair reticle instead of a generic dot. when you click it should shoot out web lines that burst outward and fade. the color theme should be spiderman red and blue matching the existing cyber-red and hud-cyan variables. also add a rotating spider shield icon next to the title. make it feel alive."
+
+
+## Phase 7: cors fix for deployment
+**Context:** Deployed to vercel and the live API routes were blocking external requests because of CORS. Had to add global headers in next.config.ts so the cron endpoint and feed route can be hit from anywhere.
+
+**Prompt Used:**
+> "my live next.js api routes are blocking external requests due to cors restrictions. update next.config.ts to add global cors headers for all api routes under /api/:path*. allow all origins, credentials, and the standard set of methods and headers."
