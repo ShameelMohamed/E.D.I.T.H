@@ -84,4 +84,9 @@ This log documents the iterative "vibe-coding" process used with Antigravity/Cla
 > "Setup & Testing Instructions and project directory tree update in readme with the live url - https://edith-lyart-ten.vercel.app/ and update prompts.md and commit to push to git"
 
 
+## Phase 11: final readme polish and rubric alignment
+**Context:** Realized the README had wrong env var names and was missing a rubric mapping table for judges. Fixed it up before final submission.
+
+**Prompt Used:**
+> "fix the env vars in the readme — we use FIREBASE_SERVICE_ACCOUNT_JSON not separate client_email/private_key fields, add GEMINI_MODEL and CRON_SECRET too. also add a hackathon rubric alignment table so judges can instantly map our features to the PS3 grading criteria. mention the 12-hour timestamp format on the HUD. push everything."
 
