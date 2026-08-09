@@ -69,3 +69,11 @@ This log documents the iterative "vibe-coding" process used with Antigravity/Cla
 **Prompt Used:**
 > "Make the Cron Route Public: Open src/app/api/internal/cron-publish/route.ts and completely remove the Authorization header check. Find and delete any authentication validation logic that looks like the authHeader extraction, the expectedSecret variable, and the if guard that returns 401 Unauthorized. The route must immediately proceed to fetching the GitHub signals and running the LLM engine as soon as a GET request hits it."
 
+
+## Phase 9: github actions cron automation
+**Context:** Need full automation so the engine runs autonomously every 6 hours without anyone triggering it. Also added a manual dispatch button so hackathon judges can trigger it on demand from the GitHub UI.
+
+**Prompt Used:**
+> "Create the GitHub Actions Workflow: Create a new file at .github/workflows/cron.yml. Schedule the engine to run every 6 hours using cron '0 */6 * * *' and add a workflow_dispatch trigger for manual runs. The job should curl our live Vercel endpoint at https://edith-lyart-ten.vercel.app/api/internal/cron-publish with a GET request and Accept: application/json header."
+
+

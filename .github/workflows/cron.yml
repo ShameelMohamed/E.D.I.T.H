@@ -1,0 +1,16 @@
+name: E.D.I.T.H. Autonomous Engine
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch: 
+
+jobs:
+  trigger-cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Live Vercel Endpoint
+        run: |
+          curl --request GET \
+          --url "https://edith-lyart-ten.vercel.app/api/internal/cron-publish" \
+          --header "Accept: application/json"
