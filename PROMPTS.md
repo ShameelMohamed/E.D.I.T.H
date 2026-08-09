@@ -77,3 +77,11 @@ This log documents the iterative "vibe-coding" process used with Antigravity/Cla
 > "Create the GitHub Actions Workflow: Create a new file at .github/workflows/cron.yml. Schedule the engine to run every 6 hours using cron '0 */6 * * *' and add a workflow_dispatch trigger for manual runs. The job should curl our live Vercel endpoint at https://edith-lyart-ten.vercel.app/api/internal/cron-publish with a GET request and Accept: application/json header."
 
 
+## Phase 10: readme overhaul with live url and directory tree
+**Context:** Final submission polish. The README needed a complete project directory tree, comprehensive setup and testing instructions for both local and production, the live Vercel URL, and a quick-test command table so judges can hit the endpoints immediately.
+
+**Prompt Used:**
+> "Setup & Testing Instructions and project directory tree update in readme with the live url - https://edith-lyart-ten.vercel.app/ and update prompts.md and commit to push to git"
+
+
+
