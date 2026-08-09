@@ -61,3 +61,11 @@ This log documents the iterative "vibe-coding" process used with Antigravity/Cla
 
 **Prompt Used:**
 > "my live next.js api routes are blocking external requests due to cors restrictions. update next.config.ts to add global cors headers for all api routes under /api/:path*. allow all origins, credentials, and the standard set of methods and headers."
+
+
+## Phase 8: make cron route public for evaluators
+**Context:** Hackathon evaluators need to hit the cron endpoint without configuring Bearer tokens. Removed the auth gate entirely so a plain GET triggers the full engine pipeline.
+
+**Prompt Used:**
+> "Make the Cron Route Public: Open src/app/api/internal/cron-publish/route.ts and completely remove the Authorization header check. Find and delete any authentication validation logic that looks like the authHeader extraction, the expectedSecret variable, and the if guard that returns 401 Unauthorized. The route must immediately proceed to fetching the GitHub signals and running the LLM engine as soon as a GET request hits it."
+

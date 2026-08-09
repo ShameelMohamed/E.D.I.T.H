@@ -18,17 +18,8 @@ import type { AgentRecord } from "@/types/edith";
 export const runtime = "nodejs";
 // Using edge could be preferred for Vercel Cron if not for Firebase Admin SDK compatibility.
 
-export async function GET(request: NextRequest): Promise<NextResponse> {
-  // ── 1. Authorisation ────────────────────────────────────────────────────────
-  const expectedSecret = process.env.CRON_SECRET || "temp";
-  const authHeader = request.headers.get("authorization")?.replace("Bearer ", "").trim();
-
-  if (authHeader !== expectedSecret) {
-    console.warn("[E.D.I.T.H. Cron] Unauthorized access attempt.");
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  // ── 2. Fetch active agents ──────────────────────────────────────────────────
+export async function GET(_request: NextRequest): Promise<NextResponse> {
+  // ── 1. Fetch active agents ────────────────────────────────────────────────
   let agents: AgentRecord[] = [];
   try {
     const snapshot = await db.collection("agents").get();
